@@ -122,16 +122,19 @@
 			function showFrame() {
 				document.getElementById("rs-consultation").style.display = "block"
 			}
+			function hideFrame() {
+				document.getElementById("rs-consultation").style.display = "none"
+			}
 		</script>
-		<div id="rs-consultation"
-			style="display: none; padding: 30px; z-index: 1000; background-color: white; left: 0px; border: 0px none; height: 770px; position: fixed; width: 470px; overflow: hidden; top: 167px; left: 500px">
+		<div onClick="hideFrame()" id="rs-consultation"
+			style="background-color:rgba(0, 0, 0, 0.8); display: none; z-index: 1000; left: 0px; border: 0px none; height: 100%; position: fixed; width: 100%; overflow: hidden; top: 0">
 			<div style="overflow: hidden;">
 			</div>
 			<iframe src="https://www.realself.com/consultation-form?id=7039&type=dr" scrolling="no"
-				style="height: 700px; border: 0px none; width: 1605px; margin-bottom: 0px; margin-left: 24px;">
+				style="background-color: white; border: 0px none; margin: 10% 40%; width: 400px; height: 800px">
 			</iframe>
 		</div>
-		<div style="z-index: 1000; left: 0px; border: 0px none; height: 70px; position: fixed; overflow: hidden; top: 167px;">
+		<div style="z-index: 900; left: 0px; border: 0px none; height: 70px; position: fixed; overflow: hidden; top: 167px;">
 			<button style="background-color: blue; color: white; height: 70px; border: 0px none; width: 200px; margin-bottom: 0px; margin-left: 24px;" onClick="showFrame()">
 				GET A CONSULATION
 			</button>
