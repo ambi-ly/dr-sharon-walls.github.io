@@ -118,27 +118,39 @@
 			</div>
 		</div>
 
-		<script>
-			function showFrame() {
-				document.getElementById("rs-consultation").style.display = "block"
-			}
-			function hideFrame() {
-				document.getElementById("rs-consultation").style.display = "none"
-			}
-		</script>
-		<div onClick="hideFrame()" id="rs-consultation"
-			style="background-color:rgba(0, 0, 0, 0.8); display: none; z-index: 1000; left: 0px; border: 0px none; height: 100%; position: fixed; width: 100%; overflow: hidden; top: 0">
-			<div style="overflow: hidden;">
-			</div>
-			<iframe src="https://www.realself.com/consultation-form?id=7039&type=dr" scrolling="no"
-				style="background-color: white; border: 0px none; margin: 10% 40%; width: 400px; height: 800px">
-			</iframe>
-		</div>
-		<div style="z-index: 900; left: 0px; border: 0px none; height: 70px; position: fixed; overflow: hidden; top: 167px;">
-			<button style="background-color: blue; color: white; height: 70px; border: 0px none; width: 200px; margin-bottom: 0px; margin-left: 24px;" onClick="showFrame()">
-				GET A CONSULATION
-			</button>
-		</div>
+<script>
+  function showFrame() {
+    document.getElementById("rs-consultation").style.display = "block"
+  }
+  function hideFrame() {
+    document.getElementById("rs-consultation").style.display = "none"
+  }
+
+  // Create IE + others compatible event handler
+  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+  var eventer = window[eventMethod];
+  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+  // Listen to message from child window
+  eventer(messageEvent, function (e) {
+    if (e.data == 'closeRSModal') {
+      hideFrame();
+    }
+  }, false);
+</script>
+
+<div onClick="hideFrame()" id="rs-consultation"
+  style="background-color:rgba(0, 0, 0, 0.8); display: none; z-index: 1000; border: 0 none; height: 100%; position: fixed; width: 100%; overflow: hidden; top: 0">
+  <iframe src="https://www.rsdev.co/consultation-form?id=7039&type=doctor" scrolling="no" width="100%" height="100%">
+  </iframe>
+</div>
+<div style="z-index: 900; left: 0; border: 0 none; height: 70px; position: fixed; overflow: hidden; top: 167px;">
+  <button
+    style="background-color: blue; color: white; height: 70px; border: 0 none; width: 200px; margin-bottom: 0; margin-left: 24px;"
+    onClick="showFrame()">
+    GET A CONSULATION
+  </button>
+</div>
 	</section><!-- end of slider section -->
 
 	<!-- about section -->
