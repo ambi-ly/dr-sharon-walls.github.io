@@ -35,7 +35,7 @@ h2 {
     background: #fff !important;
     position: fixed;
     width: 100%;
-    z-index: 99999;
+    z-index: 999;
 }
 .header-backup {
     width: 20px;
